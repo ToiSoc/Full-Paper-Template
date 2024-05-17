@@ -1,0 +1,65 @@
+\begin{titlepage}
+    \makeabstractstartcn
+    \begin{cnabstract}
+
+% 随着互联网技术的飞速发展以及人工智能与大数据技术的不断创新，中国在全球人工智能（AI）和大数据技术应用领域取得了显著进展，并确立了其领先地位。本研究聚焦于这些前沿技术在气象预测和细粒度图像检索领域的创新应用，采用了长短时记忆网络（LSTM）、卷积神经网络（CNN）与LSTM的混合模型（CNN-LSTM），以及细粒度哈希图像检索模型（LGESD），并运用Python编程语言进行全面的数据处理、模型构建、训练和预测。
+
+% LSTM模型首先被应用于时间序列分析，尤其在气象预测方面展现出其卓越的性能。通过融合时间序列分析、机器学习模型和深度神经网络，本研究旨在提升气象预测的精确性、模型的鲁棒性，并优化资源调度效率。进一步地，CNN-LSTM混合模型的提出，通过将时间序列数据图像化，显著增强了特征提取能力，从而进一步提升了气象时间序列预测的准确性。在气象数据集上，经过500个Epoch训练的CNN-LSTM模型，达到了5.0165°C²的均方误差（MSE），有效捕捉了日平均气温的变化趋势。同时，LGESD模型在细粒度图像检索任务中通过显式空间衰减注意机制（ESD）优化特征表达，提升了检索的精确度和效率。在四个公开数据集上的实验结果显示，当哈希码长度为48位时，LGESD模型的平均预测精度（mAP）最高达到了85.06\%，超越了现有技术水平。
+
+% 在模型评估方面，LSTM模型和CNN-LSTM混合模型在气象预测任务中展现了出色的性能，通过训练损失和验证损失的监测，证实了模型的有效性。LGESD模型在图像检索任务中也表现出色，其mAP在多个数据集上均优于现有方法。
+
+% 本研究的优势在于模型对海量数据的适应性强、可扩展性和泛化能力突出、框架设计创新、以及模型评估全面。然而，模型的性能在很大程度上依赖于训练数据的质量和完整性，且在计算资源需求上较高，其泛化能力的进一步验证亦是未来工作的重点。未来的研究可在本研究基础上进行模型改进，以提高预测精度和检索性能。
+
+% 综上所述，本研究成功地将人工智能与大数据技术应用于气象预测和细粒度图像检索领域，推动了技术发展，并为实际应用提供了新方法。研究成果证实，结合LSTM、CNN-LSTM和LGESD模型能够有效提升预测和检索的准确性，为未来的技术进步和应用实践打下了坚实的基础。
+
+% 随着互联网技术的突飞猛进及人工智能与大数据技术的持续突破，国内外在全球AI和大数据应用领域均取得了显著成就。本研究专注于将这些先进技术应用于气象预测与细粒度图像检索，采用了长短时记忆网络（LSTM）、{卷积神经网络（CNN）}与LSTM结合的混合模型（CNN-LSTM），以及细粒度哈希图像检索模型（LGESD），并利用Visual Code、Pycharm、Origin Pro、SpassPro、Excel、WPS进行数据处理、框架图绘制、模型构建、数据分析、训练和预测等等。
+
+% LSTM网络在时间序列分析，尤其是在气象预测方面，展现了其强大的性能。本研究通过整合时间序列分析、机器学习模型和深度神经网络，旨在提高气象预测的精确性与模型鲁棒性，优化资源调度。CNN-LSTM混合模型通过图像化时间序列数据，显著提升了特征提取能力，在实际的测试当中达到了$5.0165 {}^{\circ}\text{C}{}^2$的均方误差（MSE），有效预测了日平均气温变化。LGESD模型通过显式空间衰减注意机制（ESD），在细粒度图像检索任务中提升了检索精确度和效率，其在四个数据集上的平均预测精度（mAP）在哈希码长度为48位时最高达到85.06\%，超越了现有较为先进的方法。
+
+
+% 在模型评估环节，纯LSTM网络和CNN-LSTM模型在气象预测领域展现了显著的预测能力，这一点通过模型训练和验证过程中损失函数的持续降低得到了证实。LGESD模型在图像检索任务中的表现同样令人瞩目，其在多个数据集上的平均预测精度（mAP）均超越了当前的技术水平。本研究的优势在于模型所表现出的对海量数据的卓越适应性、显著的可扩展性和泛化能力、创新性的框架设计以及全面细致的模型评估过程。然而，我们也注意到模型的性能在很大程度上依赖于训练数据的质量和完整性，同时对计算资源的需求量较大。针对这些挑战，未来的研究工作将着重于进一步验证和提升模型的泛化能力，同时探索模型改进的可能性，以期达到更高的预测精度和图像检索性能。
+
+% 综合实验结果分析，本研究成功地将人工智能与大数据技术融合应用于气象预测和细粒度图像检索领域，不仅推动了相关技术的发展，更为这些领域的实际应用提供了创新的方法。研究成果证明，LSTM网络、CNN-LSTM模型和LGESD模型在分别在各自的领域均能表现出一定的性能，为未来的技术创新和应用实践奠定了坚实的基础。
+
+随着互联网技术的突飞猛进及人工智能与大数据技术的持续突破，国内外在全球AI和大数据应用领域均取得了显著成就。本研究专注于将这些先进技术应用于气象预测与细粒度图像检索，采用了长短时记忆网络（LSTM）、卷积神经网络（CNN）与LSTM结合的混合模型（CNN-LSTM），以及细粒度哈希图像检索模型（LGESD），并利用Visual Code、Pycharm、Origin Pro、SpassPro、Excel、WPS进行数据处理、框架图绘制、模型训练和预测等等操作。
+
+LSTM网络通过融合时间序列分析、机器学习与深度学习技术，在气象预测中提高了预测精度和模型鲁棒性，同时优化了资源调度。新型混合模型 CNN-LSTM 通过图像化时间序列数据，增强特征提取，实测均方误差（MSE）达$5.0165 {}^{\circ}\text{C}{}^2$，有效预测日平均气温变化。LGESD模型创新型地引入了显式空间衰减注意机制（ESD），在细粒度图像检索任务中提升检索精度和效率，四个数据集上平均预测精度（mAP）在哈希码长度48位时最高85.06\%，超越了现有较为先进的方法。
+
+在气象预测领域，纯LSTM网络和CNN-LSTM模型通过持续降低损失函数验证了其显著的预测能力。LGESD模型在图像检索任务中也展现了超越当前技术水平的平均预测精度（mAP）。本研究优势在于模型对大数据的适应性、可扩展性、泛化能力、创新框架设计和细致的评估过程。然而，我们也注意到模型的性能在很大程度上依赖于训练数据的质量和完整性，同时对计算资源的需求量较大。针对这些挑战，未来的研究工作将着重于进一步验证和提升模型的泛化能力，同时探索模型改进的可能性，以期达到更高的预测精度和图像检索性能。
+
+综合实验结果分析，本研究成功地将人工智能与大数据技术融合应用于气象预测和细粒度图像检索领域，不仅推动了相关技术的发展，更为这些领域的实际应用提供了创新的方法。研究成果证明，LSTM网络、CNN-LSTM模型和LGESD模型在分别在各自的领域均能表现出一定的性能，为未来的技术创新和应用实践奠定了坚实的基础。
+
+
+
+    \begin{keywordcn}
+    人工智能；气象预测；图像检索；CNN-LSTM模型；LGESD框架
+    \end{keywordcn}
+    
+    \addabstractcontentcn
+    \end{cnabstract}
+\end{titlepage}
+
+
+
+\begin{titlepage}
+    \makeabstractstarten
+    \begin{enabstract}
+
+    As Internet technology advances and AI and big data technologies progress, notable global accomplishments have been made. This study concentrates on applying cutting-edge technologies to weather forecasting and fine-grained image retrieval, using LSTM, CNN-LSTM hybrid models, and LGESD. Tools including Visual Code, PyCharm, Origin Pro, Spasspro, Excel and WPS are employed for tasks from data processing to model development, analysis, training, and prediction.
+
+    LSTM networks enhance weather forecasting by integrating time series analysis, machine learning, and deep learning, improving prediction accuracy and model robustness, and optimizing resource scheduling. The CNN-LSTM hybrid model boosts feature extraction from image-based time series data, achieving an MSE of $5.0165^{\circ}\text{C}^2$ for predicting daily average temperature changes. The LGESD model introduces the explicit spatial decay attention mechanism (ESD) for fine-grained image retrieval, with an average mAP of 85.06\% at a 48-bit hash code length across four datasets, outperforming current advanced methods.
+
+    In weather forecasting, LSTM networks and CNN-LSTM models consistently reduce loss, validating their predictive power. LGESD models also surpass current benchmarks in image retrieval with a mean predictive accuracy (mAP) above state-of-the-art. This study's strengths include the model's adaptability to big data, scalability, generalization, innovative design, and rigorous evaluation. However, model performance is contingent on the quality and completeness of training data and is computationally intensive. Future research will aim to enhance the model's generalization, improve its predictive and retrieval performance, and address these challenges.
+
+    In summary, this study effectively integrated AI and big data in weather prediction and fine-grained image retrieval, advancing the field and offering new practical methods. The findings validate the performance of LSTM networks, CNN-LSTM models, and LGESD models in their respective domains, establishing a strong basis for future technological innovation and application.
+    
+    \begin{keyworden}
+    AI; Weather Forecast; Image Retrieval; CNN-LSTM; LGESD Model
+    \end{keyworden}
+    
+    \addabstractcontenten
+    \end{enabstract}
+\end{titlepage}
+
+
+
