@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.18)  17 MAY 2024 22:33
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.18)  17 MAY 2024 22:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1408,7 +1408,11 @@ File: ppxetex.def 2022/12/19 v0.5x Pdfpages driver for XeTeX (AM)
 \AM@lof@heading=\toks59
 \c@AM@survey=\count554
 \AM@templatesizebox=\box98
-))
+)
+
+Package xeCJK Warning: Redefining CJKfamily `zhsong' (SimSun).
+
+)
 \@quotelevel=\count555
 \@quotereset=\count556
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 36.
@@ -1537,11 +1541,11 @@ Package fontspec Info: Font family 'SourceHanSansCN-Bold.otf(0)' created for
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-Package fontspec Info: Could not resolve font "SimSun/BI" (it probably doesn't
+Package fontspec Info: Could not resolve font "SimSun/I" (it probably doesn't
 (fontspec)             exist).
 
 
-Package fontspec Info: Could not resolve font "SimSun/B" (it probably doesn't
+Package fontspec Info: Could not resolve font "SimSun/BI" (it probably doesn't
 (fontspec)             exist).
 
 
@@ -1550,7 +1554,7 @@ Package fontspec Info: Could not resolve font "SimSun/I" (it probably doesn't
 
 
 Package fontspec Info: Font family 'SimSun(1)' created for font 'SimSun' with
-(fontspec)             options [Script={CJK}].
+(fontspec)             options [Script={CJK},AutoFakeBold={2.17}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
@@ -1558,6 +1562,9 @@ Package fontspec Info: Font family 'SimSun(1)' created for font 'SimSun' with
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;embolden=2.17;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 26.
  (d:/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
@@ -1588,12 +1595,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 26.
  (d:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-
-LaTeX Font Warning: Font shape `TU/SimSun(1)/b/n' undefined
-(Font)              using `TU/SimSun(1)/m/n' instead on input line 34.
-
-[1
+) [1
 
 ] [2]) (Tmp/TJJM-GoicO.toc
 
@@ -1827,11 +1829,11 @@ Package logreq Info: Writing requests to 'TJJM-GoicO.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51341 strings out of 476683
- 1130302 string characters out of 5807574
- 2640548 words of memory out of 5000000
- 70672 multiletter control sequences out of 15000+600000
- 567892 words of font info for 172 fonts, out of 8000000 for 9000
+ 51346 strings out of 476683
+ 1130479 string characters out of 5807574
+ 2640589 words of memory out of 5000000
+ 70675 multiletter control sequences out of 15000+600000
+ 567900 words of font info for 173 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  130i,16n,145p,3267b,5122s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
