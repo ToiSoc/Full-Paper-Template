@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is './Tmp/TJJM-GoicO.blg'
-[53] biber-MSWIN64:340> INFO - === 
-[69] Biber.pm:419> INFO - Reading './Tmp/TJJM-GoicO.bcf'
-[186] Biber.pm:976> INFO - Using all citekeys in bib section 0
-[201] Biber.pm:4419> INFO - Processing section 0
-[213] Biber.pm:4610> INFO - Looking for bibtex file 'TJJM-GoicO.bib' for section 0
-[215] bibtex.pm:1713> INFO - LaTeX decoding ...
-[246] bibtex.pm:1519> INFO - Found BibTeX data source 'TJJM-GoicO.bib'
-[884] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[884] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[884] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[884] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[915] bbl.pm:660> INFO - Writing './Tmp/TJJM-GoicO.bbl' with encoding 'UTF-8'
-[1170] bbl.pm:763> INFO - Output to ./Tmp/TJJM-GoicO.bbl
+[57] biber-MSWIN64:340> INFO - === 
+[99] Biber.pm:419> INFO - Reading './Tmp/TJJM-GoicO.bcf'
+[209] Biber.pm:976> INFO - Using all citekeys in bib section 0
+[222] Biber.pm:4419> INFO - Processing section 0
+[234] Biber.pm:4610> INFO - Looking for bibtex file 'TJJM-GoicO.bib' for section 0
+[237] bibtex.pm:1713> INFO - LaTeX decoding ...
+[266] bibtex.pm:1519> INFO - Found BibTeX data source 'TJJM-GoicO.bib'
+[943] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[943] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[951] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[951] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[983] bbl.pm:660> INFO - Writing './Tmp/TJJM-GoicO.bbl' with encoding 'UTF-8'
+[1254] bbl.pm:763> INFO - Output to ./Tmp/TJJM-GoicO.bbl

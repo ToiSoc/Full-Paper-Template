@@ -1,17 +1,17 @@
 \section{模型构建与分析}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.65\textwidth]{./Img/LSTM解释结构图.pdf}
-  \caption{LSTM详细结构图}\label{fig:a-0}
-\end{figure}
-
 \subsection{LSTM长短时记忆网络}
 \label{subsec:lstm}
 
 \subsubsection{算法介绍}
 
-LSTM（Long Short-Term Memory Networks,长短时记忆网络），由Hochreiter和Schmidhuber于1997年提出 \cite{LSTM_Hochrerter}，目的是解决一般循环神经网络中存在的梯度爆炸（输入信息激活后权重过小）及梯度消失（例如sigmoid、tanh的激活值在输入很大时其梯度趋于零）问题，主要通过引入门和Cell状态的概念来实现梯度的调整。LSTM采用了门控输出的方式，即三门（输入门、遗忘门、输出门）两态（Cell State长时、Hidden State短时）。其核心即Cell State，指用于信息传播的Cell的状态，其结构示意图如图 \ref{fig:a-0}所示。
+LSTM（Long Short-Term Memory Networks,长短时记忆网络），由Hochreiter和Schmidhuber于1997年提出 \cite{LSTM_Hochrerter}，目的是解决一般循环神经网络中存在的梯度爆炸（输入信息激活后权重过小）及梯度消失（例如sigmoid、tanh的激活值在输入很大时其梯度趋于零）问题，主要通过引入门和Cell状态的概念来实现梯度的调整。LSTM采用了门控输出的方式，即三门（输入门、遗忘门、输出门）两态（Cell State长时、Hidden State短时）。其核心即Cell State，指用于信息传播的Cell的状态，其结构示意图如图 \ref{fig:a-0}所示：
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.65\textwidth]{./Img/LSTM解释结构图.pdf}
+  \caption{LSTM详细结构图}\label{fig:a-0}
+\end{figure}
 
 
 \subsubsection{数据预处理}
@@ -142,7 +142,7 @@ LSTM（Long Short-Term Memory Networks,长短时记忆网络），由Hochreiter�
 \subsubsection{实验结果}
 
 
-经过数据预处理环节之后，有效的气象数据集如表 \ref{tab:LSTM_data}所示。在作为模型的输入数据之前，所有数据集需要进行数据归一化，归一化的计算方法如下：
+经过数据预处理环节之后，有效的气象数据集如表 \ref{tab:LSTM_data} 所示。在作为模型的输入数据之前，所有数据集需要进行数据归一化，归一化的计算方法如下：
 \begin{align}
     y = \frac{x_i-x_{min}}{x_{max}-x_{min}}
 \end{align}
@@ -429,11 +429,11 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
 
 然后对公式 \ref{eq:4-0} 中的 $A$ 矩阵进行奇异值分解操作，得到 $A = \Lambda(\gamma e^{i\theta})\Lambda^{-1}, \gamma,\theta\in\mathbb{R}^d$，同理，对于 $n-m$ 次循环，可以得到 $A^{n-m} = \Lambda(\gamma e^{i\theta})^{n-m}\Lambda^{-1}, \gamma,\theta\in\mathbb{R}^d$，用这个 $A^{n-m}$ 的表达式替换掉公式 \ref{eq:4-1} 中的 $A^{n-m}$，整理后的 $o_n$ 的计算公式如下：
 \begin{equation}
-    \begin{split}
+  \begin{split}
     o_{n}& =\sum_{m=1}^nQ_n(\gamma e^{i\theta})^{n-m}K_m^\intercal v_m \\
     &=\sum_{m=1}^n(Q_n(\gamma e^{i\theta})^n)(K_m(\gamma e^{i\theta})^{-m})^\intercal v_m \\
     &=\sum_{m=1}^n\gamma^{n-m}(Q_ne^{in\theta})(K_me^{im\theta})^\dagger v_m
-    \end{split}
+  \end{split}
 \end{equation}
 
 其中 $\dagger$ 表示共轭转置，之后针对整体的计算过程进行并行化，如图 \ref{fig:4-3_a} 所示，具体的表达式如下所示：
@@ -498,8 +498,11 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
 
 \textbf{数据集划分}：本研究在四个数据集上进行，分别是CUB200-2011 \cite{Wah2011TheCB}、Aircraft \cite{maji2013finegrained}、Food101 \cite{food101_2014} 以及 NABirds \cite{nabirds2015}，其中 CUB200-2011 和 Aircraft 属于广泛使用的数据集，Food101 和 NABirds 属于流行的大规模细粒度数据集。CUB200-2011 为鸟类数据集，包含了200种鸟类的11788张图像，我们将其分为5994张图像用于训练，5794张图像用于测试。Aircraft 为飞机数据集，包含了100种类型飞机的10000张图像，将其中6667张图像用于训练，3333张图像用于测试。Food101 为具有101000张图像的101种食品类数据集，每个类别中有1000张图像，我们按照每个类别挑选750张图像用于训练，250张用于测试，划分出训练图像75750张，测试图像25250张。NABirds 包含了48562张图像的北美鸟类数据集，其中555种北美子鸟类，我们将23929张图像用于训练，24633种图像用于测试。
 
-
 \textbf{训练设置}：对于CUB200-2011、Aircraft 以及 Food101 三个数据集，我们设置每个 Epoch 随机采样的样本数为2000个，而对于 NABirds 数据集，设置每个 Epoch 随机采样的样本数为 4000 个。对于所有的数据集，我们设定每张输入的图像预处理为 $224 \times 224$ 大小，训练次数 Epoch 为30次，设定迭代时间为 50，迭代的学习率设置为 $5 \times 10^{-4}$，批量的大小设置为 16，使用 SGD 作为优化器，骨干网络选择 ResNet-50 \cite{he2015deep}，训练过程的权重衰减和动量分别设置为 $10^{-4}$ 和 $0.91$。在公式 \ref{eq:final_eq} 中的 $\alpha$ 和 $\beta$ 我们分别设置为 $0.6$ 和 $30$。在公式 \ref{eq:eq_4_m} 中的 $m$ 我们设置为3，因此最终的全局和局部双轨结构的输出哈希码长度分别为 $\frac{k}{2}$ 和 $\frac{k}{6}$，其中 $k$ 为训练时指定的最终输出的哈希码的长度。
+
+
+
+\subsubsection{实验执行结果}
 
 
 \begin{figure}[h]
@@ -515,7 +518,7 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
     \includegraphics[width=\linewidth]{./Img/CUB-24.pdf}
     \caption{$k=24$}\label{fig:4-25}
   \end{subfigure}
-  \hfill
+  \hfil
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=\linewidth]{./Img/CUB-32.pdf}
@@ -528,12 +531,14 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
     \caption{$k=48$}\label{fig:4-27}
   \end{subfigure}
   \caption{CUB200-2011数据集的12-48哈希码长度训练损失}
-  \label{fig:4-28-a}
+  \label{fig:4-28}
 \end{figure}
 
 如图 \ref{fig:4-24} 至 \ref{fig:4-27} 所示，这一系列四幅图表详尽描绘了LGESD在同个数据集的不同哈希码长度上的训练进程中，损失函数的演变轨迹。当哈希码长度为32时，损失值从初始的2.4稳步下探至约2.0，直观展示了模型效能的稳步提升。类似地，哈希码长度为12的训练轨迹亦呈现出乐观的下降态势，损失值由1.22优化至1.06，再度验证了模型在迭代学习中的持续优化能力。在采用48位哈希码的配置下，因编码长度的增益，模型被赋予了学习更为复杂和丰富的特征表达空间的能力，进而导致初期损失值设定于较高水平（3.0）。然而，随着训练进程的推移，这一数值稳步下滑至约2.6，并呈现平稳趋势，这一动态不仅揭示了模型在克服初期高挑战起点时的韧性，还显著证明了其在应对高级分类任务时的学习效率与灵活适应性。综观所有实验情境，随着训练次数（Epoch）的累加，损失函数的递减速率渐趋缓慢，标志着模型学习已逼近收敛状态，实现了训练目标。
 
-\begin{table*}[h]
+模型训练完成之后，我们针对模型进行平均预测精度（mAP）评估，得到的结果如表 \ref{tab:experiments} 所示，在对四个关键数据集的深入剖析中，LGESD展示出相对于A${}^2$-Net持续且明显的优越性。具体到CUB200-2011数据集，LGESD从采用12位哈希码起始，即以41.50\%的mAP成绩奠定了领先地位，此时A${}^2$-Net为33.83\%；而随着哈希长度扩展至48位，LGESD的mAP显著跃升至80.12\%，与A${}^2$-Net的77.33\%形成对比，进一步凸显其优势。转观Aircraft数据集，这种优势在12至32位的哈希码范围内尤为突出，LGESD从50.37\%逐步攀高至85.06\%的峰值，相比之下，A${}^2$-Net在同一区间的表现由42.72\%增长至81.37\%，虽有进步，但仍略逊一筹。在food101与NABirds这两个数据集的探索中，无论哈希长度如何变化，LGESD均稳固保持其领先地位，不断验证其在多样化任务中的高效性能与适应力。
+
+\begin{table*}[t]
 	\caption{LGESD模型的平均预测精度(\%mAP)与现有方法对比}
 	\label{tab:experiments}
 	\centering
@@ -568,13 +573,6 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
 		\bottomrule
 	\end{tabular}}
 \end{table*}
-
-
-模型训练完成之后，我们针对模型进行平均预测精度（mAP）评估，得到的结果如表 \ref{tab:experiments} 所示，在对四个关键数据集的深入剖析中，LGESD展示出相对于A${}^2$-Net持续且明显的优越性。具体到CUB200-2011数据集，LGESD从采用12位哈希码起始，即以41.50\%的mAP成绩奠定了领先地位，此时A${}^2$-Net为33.83\%；而随着哈希长度扩展至48位，LGESD的mAP显著跃升至80.12\%，与A${}^2$-Net的77.33\%形成对比，进一步凸显其优势。转观Aircraft数据集，这种优势在12至32位的哈希码范围内尤为突出，LGESD从50.37\%逐步攀高至85.06\%的峰值，相比之下，A${}^2$-Net在同一区间的表现由42.72\%增长至81.37\%，虽有进步，但仍略逊一筹。在food101与NABirds这两个数据集的探索中，无论哈希长度如何变化，LGESD均稳固保持其领先地位，不断验证其在多样化任务中的高效性能与适应力。
-
-
-
-
 
 \subsubsection{实验结果分析}
 
