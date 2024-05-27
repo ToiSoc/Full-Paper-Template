@@ -923,6 +923,11 @@
         <bcf:map_step map_field_set="location" map_origfieldval="1"/>
       </bcf:map>
       <bcf:map>
+        <bcf:per_type>inproceedings</bcf:per_type>
+        <bcf:map_step map_field_source="eventtitle" map_final="1"/>
+        <bcf:map_step map_field_source="techreport" map_field_target="booktitle"/>
+      </bcf:map>
+      <bcf:map>
         <bcf:map_step map_field_source="mark" map_final="1"/>
         <bcf:map_step map_field_set="usera" map_origfieldval="1"/>
       </bcf:map>

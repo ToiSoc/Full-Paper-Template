@@ -13,7 +13,7 @@ $(OUTPUT_DIR):
 
 
 # XeLaTeX 编译循环并将PDF放入输出目录
-.PHONY: xe
+.PHONY: x
 x: $(OUTPUT_DIR)
 	xelatex -output-directory=$(OUTPUT_DIR) $(TEX_FILE)
 	biber $(OUTPUT_DIR)/$(basename $(TEX_FILE)); \

@@ -18,7 +18,7 @@
     top=2.54cm,   
     bottom=2.54cm, 
 ]{geometry}
-\usepackage{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
 \usepackage{amsfonts}
@@ -69,9 +69,8 @@
 \usepackage{threeparttable}
 \usepackage{multirow}
 \usepackage{pdfpages}
-\usepackage {svg}           % 用于导入SVG格式图片
-\usepackage{xurl}           % url换行
-
+\usepackage{svg}           % 用于导入SVG格式图片
+\usepackage{unicode-math}
 
 %==================================================================================
 % 导入字体
@@ -90,6 +89,7 @@
 \addbibresource{TJJM-GoicO.bib}
 %==================================================================================
 
+\setCJKmainfont{SimSun} % 设置中文字体
 
 %==================================================================================
 % 设置西文字体
@@ -773,7 +773,7 @@
 
 \setlength{\cftsecnumwidth}{2.5em}                      % 根据实际需求调整section序号的宽度
 \setlength{\cftsubsecnumwidth}{3.5em}                   % 根据实际需求调整subsection序号的宽度
-\setlength{\cftsubsubsecnumwidth}{1.6em}                % 根据实际需求调整subsubsection序号的宽度
+\setlength{\cftsubsubsecnumwidth}{1.5em}                % 根据实际需求调整subsubsection序号的宽度
 
 
 \renewcommand{\cftsecpresnum}{\hspace{0pt}}             % 减少section编号前的空白

@@ -126,7 +126,7 @@ LSTM（Long Short-Term Memory Networks,长短时记忆网络），由Hochreiter�
 \end{align}
 上式中，$g(\cdot)$ 为Cell输出的激活函数。
 
-\textbf{输出门：}与遗忘门输出公式同理，对于每个LSTM单元的输出门 $w$，可得到输出门计算公式：
+\textbf{输出门：}与遗忘门输出公式同理，对于每个LSTM单元的输出门 $\omega$，可得到输出门计算公式：
 \begin{align}
     a_\omega^t=\sum_{i=1}^IW^i_{\omega} \cdot X_i^t+&\sum_{h=1}^HW^h_{\omega} \cdot b_h^{t-1}+\sum_{c=1}^CW^c_{\omega} \cdot s_c^{t-1} \\
     &b_\omega^t=f(a_\omega^t)
@@ -381,7 +381,7 @@ LSTM（Long Short-Term Memory Networks,长短时记忆网络），由Hochreiter�
 \hat{\mathrm{T}}=\phi(\mathrm{T};\theta_{\mathrm{global}})\in\mathbb{R}^{C^{\prime}\times H^{\prime}\times W^{\prime}}
 \end{equation}
 
-其中 $\theta_{\mathrm{global}}$ 表示 $\phi(\cdot)$的参数配置，而在局部特征学习当中，分别划分了 $m$ 个学习阶段，并为每一个学习阶段的添加了一个注意力引导机制 $\mathrm{P}_i = \phi_{\mathrm{att}}(T;\theta_{\mathrm{att}}), \mathrm{P}_i \in \mathrm{R}^{\frac{C}{m} \times H \times W}$，用于在每个阶段学习生成注意力图 $M_i$，在得到每个学习阶段注意力图之后，通过逐个元素点乘的方式评估 $H \times W$ 个元素当中被关注的深度描述符。
+其中 $\theta_{\mathrm{global}}$ 表示 $\phi(\cdot)$的参数配置，而在局部特征学习当中，分别划分了 $m$ 个学习阶段，并为每一个学习阶段的添加了一个注意力引导机制 $\mathrm{P}_i = \phi_{\mathrm{att}}(T;\theta_{\mathrm{att}}), \mathrm{P}_i \in \mathbb{R}^{\frac{C}{m} \times H \times W}$，用于在每个阶段学习生成注意力图 $M_i$，在得到每个学习阶段注意力图之后，通过逐个元素点乘的方式评估 $H \times W$ 个元素当中被关注的深度描述符。
 \begin{equation}
     \mathrm{T}_i^{\prime}=M_i\odot \mathrm{T}, \quad i \in \{1,2,\cdots,m \}
     \label{eq:eq_4_m}
@@ -418,8 +418,8 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
 
 经过处理得到的 $X\in\mathbb{R}^{|x|\times d_{\mathrm{model}}}$，我们将其投影到一维的函数 $v(n)=X_n\cdot  {w}_V$，在此过程中，RetNet 设计了一个循环化和并行双重计算过程，如图 \ref{fig:4-3} 所示，使得 $v(n)$ 经过中间状态 $s_n$ 得到输出 $o(n)$，具体的循环计算公式如下：
 \begin{align}
-    s_n &=As_{n-1}+K_n^\intercal v_n, \quad A\in\mathbb R^{d\times d},K_n\in\mathbb R^{1\times d} \label{eq:4-0}\\
-    o_n &=Q_ns_n=\sum_{m=1}^nQ_nA^{n-m}K_m^\intercal v_m, \quad Q_n\in\mathbb R^{1\times d} \label{eq:4-1}
+    s_n &=As_{n-1}+K_n^\intercal v_n, \quad A\in\mathbb{R}^{d\times d},K_n\in\mathbb{R}^{1\times d} \label{eq:4-0}\\
+    o_n &=Q_ns_n=\sum_{m=1}^nQ_nA^{n-m}K_m^\intercal v_m, \quad Q_n\in\mathbb{R}^{1\times d} \label{eq:4-1}
 \end{align}
 
 其中的 $v_n$ 和 $o_n$ 即为 $v(n)$ 和 $s(n)$，之后，定义一个可学习的矩阵：$W_Q,W_K\in\mathbb{R}^{d\times d}$，因此，投影 $Q_n$ 和 $K_n$的内容感知如下：
@@ -501,10 +501,6 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
 \textbf{训练设置}：对于CUB200-2011、Aircraft 以及 Food101 三个数据集，我们设置每个 Epoch 随机采样的样本数为2000个，而对于 NABirds 数据集，设置每个 Epoch 随机采样的样本数为 4000 个。对于所有的数据集，我们设定每张输入的图像预处理为 $224 \times 224$ 大小，训练次数 Epoch 为30次，设定迭代时间为 50，迭代的学习率设置为 $5 \times 10^{-4}$，批量的大小设置为 16，使用 SGD 作为优化器，骨干网络选择 ResNet-50 \cite{he2015deep}，训练过程的权重衰减和动量分别设置为 $10^{-4}$ 和 $0.91$。在公式 \ref{eq:final_eq} 中的 $\alpha$ 和 $\beta$ 我们分别设置为 $0.6$ 和 $30$。在公式 \ref{eq:eq_4_m} 中的 $m$ 我们设置为3，因此最终的全局和局部双轨结构的输出哈希码长度分别为 $\frac{k}{2}$ 和 $\frac{k}{6}$，其中 $k$ 为训练时指定的最终输出的哈希码的长度。
 
 
-
-\subsubsection{实验执行结果}
-
-
 \begin{figure}[h]
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -518,7 +514,13 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
     \includegraphics[width=\linewidth]{./Img/CUB-24.pdf}
     \caption{$k=24$}\label{fig:4-25}
   \end{subfigure}
-  \hfil
+  \caption{CUB200-2011数据集的12-24哈希码长度训练损失}
+  \label{fig:4-28-a}
+\end{figure}
+
+\subsubsection{实验执行结果}
+
+\begin{figure}
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=\linewidth]{./Img/CUB-32.pdf}
@@ -530,15 +532,13 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
     \includegraphics[width=\linewidth]{./Img/CUB-48.pdf}
     \caption{$k=48$}\label{fig:4-27}
   \end{subfigure}
-  \caption{CUB200-2011数据集的12-48哈希码长度训练损失}
-  \label{fig:4-28}
+  \caption{CUB200-2011数据集的32-48哈希码长度训练损失}
+  \label{fig:4-28-b}
 \end{figure}
 
 如图 \ref{fig:4-24} 至 \ref{fig:4-27} 所示，这一系列四幅图表详尽描绘了LGESD在同个数据集的不同哈希码长度上的训练进程中，损失函数的演变轨迹。当哈希码长度为32时，损失值从初始的2.4稳步下探至约2.0，直观展示了模型效能的稳步提升。类似地，哈希码长度为12的训练轨迹亦呈现出乐观的下降态势，损失值由1.22优化至1.06，再度验证了模型在迭代学习中的持续优化能力。在采用48位哈希码的配置下，因编码长度的增益，模型被赋予了学习更为复杂和丰富的特征表达空间的能力，进而导致初期损失值设定于较高水平（3.0）。然而，随着训练进程的推移，这一数值稳步下滑至约2.6，并呈现平稳趋势，这一动态不仅揭示了模型在克服初期高挑战起点时的韧性，还显著证明了其在应对高级分类任务时的学习效率与灵活适应性。综观所有实验情境，随着训练次数（Epoch）的累加，损失函数的递减速率渐趋缓慢，标志着模型学习已逼近收敛状态，实现了训练目标。
 
-模型训练完成之后，我们针对模型进行平均预测精度（mAP）评估，得到的结果如表 \ref{tab:experiments} 所示，在对四个关键数据集的深入剖析中，LGESD展示出相对于A${}^2$-Net持续且明显的优越性。具体到CUB200-2011数据集，LGESD从采用12位哈希码起始，即以41.50\%的mAP成绩奠定了领先地位，此时A${}^2$-Net为33.83\%；而随着哈希长度扩展至48位，LGESD的mAP显著跃升至80.12\%，与A${}^2$-Net的77.33\%形成对比，进一步凸显其优势。转观Aircraft数据集，这种优势在12至32位的哈希码范围内尤为突出，LGESD从50.37\%逐步攀高至85.06\%的峰值，相比之下，A${}^2$-Net在同一区间的表现由42.72\%增长至81.37\%，虽有进步，但仍略逊一筹。在food101与NABirds这两个数据集的探索中，无论哈希长度如何变化，LGESD均稳固保持其领先地位，不断验证其在多样化任务中的高效性能与适应力。
-
-\begin{table*}[t]
+\begin{table*}[h]
 	\caption{LGESD模型的平均预测精度(\%mAP)与现有方法对比}
 	\label{tab:experiments}
 	\centering
@@ -573,6 +573,10 @@ RetNet \cite{sun2023retentive} 在大语言模型任务当中首次在注意力�
 		\bottomrule
 	\end{tabular}}
 \end{table*}
+
+
+模型训练完成之后，我们针对模型进行平均预测精度（mAP）评估，得到的结果如表 \ref{tab:experiments} 所示，在对四个关键数据集的深入剖析中，LGESD展示出相对于A${}^2$-Net持续且明显的优越性。具体到CUB200-2011数据集，LGESD从采用12位哈希码起始，即以41.50\%的mAP成绩奠定了领先地位，此时A${}^2$-Net为33.83\%；而随着哈希长度扩展至48位，LGESD的mAP显著跃升至80.12\%，与A${}^2$-Net的77.33\%形成对比，进一步凸显其优势。转观Aircraft数据集，这种优势在12至32位的哈希码范围内尤为突出，LGESD从50.37\%逐步攀高至85.06\%的峰值，相比之下，A${}^2$-Net在同一区间的表现由42.72\%增长至81.37\%，虽有进步，但仍略逊一筹。在food101与NABirds这两个数据集的探索中，无论哈希长度如何变化，LGESD均稳固保持其领先地位，不断验证其在多样化任务中的高效性能与适应力。
+
 
 \subsubsection{实验结果分析}
 
