@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.27)  27 MAY 2024 19:22
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.27)  27 MAY 2024 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1731,41 +1731,6 @@ TeX
 (/usr/local/texlive/2023/texmf-dist/tex/latex/unicode-math/unicode-math-table.t
 ex)))
 
-Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault'
-(xeCJK)                (FandolSong-Regular(0)).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "SimSun/BI" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "SimSun/B" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "SimSun/I" (it probably doesn't
-(fontspec)             exist).
-
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 10
-1.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
-
-Package fontspec Info: 
-(fontspec)             Font family 'SimSun(0)' created for font 'SimSun' with
-(fontspec)             options [Script={CJK}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
-
-
 Package fontspec Info: 
 (fontspec)             Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             New Roman' with options [Ligatures=TeX,Path =
@@ -1812,18 +1777,46 @@ dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  OT1/ztmcm/m/n --> TU/TimesNewRoman(1)/m/n on input line
- 110.
+ 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/ptm/m/it --> TU/TimesNewRoman(1)/m/it on input line
- 110.
+ 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/ptm/bx/n --> TU/TimesNewRoman(1)/b/n on input line 
-110.
+119.
+
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault'
+(xeCJK)                (FandolSong-Regular(0)).
+
+
+Package fontspec Info: 
+(fontspec)             Script 'CJK' not explicitly supported within font
+(fontspec)             'FandolSong-Regular'. Check the typeset output, and if
+(fontspec)             it is okay then ignore this warning. Otherwise a
+(fontspec)             different font should be chosen.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FandolSong(0)' created for font
+(fontspec)             'FandolSong' with options
+(fontspec)             [Script={CJK},Path={fonts/},UprightFont={*-Regular},Bold
+Font={*-Bold}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[fonts/FandolSong-Regular]/OT:script=hani;language=d
+flt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[fonts/FandolSong-Bold]/OT:script=hani;language=dflt
+;"
+
 )
 \@quotelevel=\count564
 \@quotereset=\count565
-
-(Tmp/TJJM-GoicO.aux)
+ (Tmp/TJJM-GoicO.aux)
 \openout1 = `TJJM-GoicO.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
@@ -2265,18 +2258,13 @@ Package fontspec Info:
 
 File: ./Img/大模型发展绘图.pdf Graphic file (type pdf)
 <use ./Img/大模型发展绘图.pdf>
-
-
-LaTeX Font Warning: Font shape `TU/SimSun(0)/b/n' undefined
-(Font)              using `TU/SimSun(0)/m/n' instead on input line 11.
-
-[1]
+ [1]
 File: ./Img/多模态大模型结构.pdf Graphic file (type pdf)
 <use ./Img/多模态大模型结构.pdf>
 File: ./Img/多模态大语言模型.pdf Graphic file (type pdf)
 <use ./Img/多模态大语言模型.pdf>
- [2] [3] [4] [5] [6]) (./documents/2-指标选取与数据说明.tex [7])
-(./documents/3-研究假设与变量说明.tex [8] [9]) (./documents/4-模型构建与分析.tex
+ [2] [3] [4] [5] [6]) (./documents/2-指标选取与数据说明.tex
+[7]) (./documents/3-研究假设与变量说明.tex [8] [9]) (./documents/4-模型构建与分析.tex
 File: ./Img/LSTM解释结构图.pdf Graphic file (type pdf)
 <use ./Img/LSTM解释结构图.pdf>
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
@@ -2294,8 +2282,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
  [10]
 File: ./Img/LSTM工作流程图.pdf Graphic file (type pdf)
 <use ./Img/LSTM工作流程图.pdf>
- [11]
-[12] [13]
+
+[11] [12] [13]
 File: ./Img/相关性热力图.pdf Graphic file (type pdf)
 <use ./Img/相关性热力图.pdf>
 File: ./Img/LSTM_loss.pdf Graphic file (type pdf)
@@ -2463,11 +2451,11 @@ Package logreq Info: Writing requests to 'TJJM-GoicO.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55573 strings out of 474649
- 1208656 string characters out of 5755059
- 2889775 words of memory out of 5000000
- 76862 multiletter control sequences out of 15000+600000
- 584398 words of font info for 204 fonts, out of 8000000 for 9000
+ 55545 strings out of 474649
+ 1208694 string characters out of 5755059
+ 2889839 words of memory out of 5000000
+ 76839 multiletter control sequences out of 15000+600000
+ 582762 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  132i,16n,145p,3271b,5122s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
