@@ -12,6 +12,7 @@
 %%============================================================================%%
 
 
+
 \usepackage[
     left=3.17cm,   
     right=3.17cm,  
@@ -39,7 +40,7 @@
 %============================================================================================
 
 \usepackage{graphicx}
-\usepackage{amsmath, amsthm, amssymb, appendix, bm, graphicx, mathrsfs}
+\usepackage{amsmath, amsthm, appendix, bm, graphicx, mathrsfs}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage[most]{tcolorbox}
@@ -61,7 +62,14 @@
 \usepackage{booktabs}
 \usepackage{tocloft}
 \usepackage{setspace}
-\usepackage[style=gb7714-2015, backend=biber, sorting=none, gbnamefmt=lowercase]{biblatex}
+
+\usepackage[
+    style=gb7714-2015, 
+    backend=biber, 
+    sorting=none, 
+    gbnamefmt=lowercase
+]{biblatex}
+
 \usepackage{xpatch}  
 \usepackage{tocloft}        % 更细致的控制页码
 \usepackage{enumitem}
@@ -72,6 +80,9 @@
 \usepackage{svg}           % 用于导入SVG格式图片
 \usepackage{unicode-math}
 
+
+%==================================================================================
+% math package amssymb
 %==================================================================================
 % 导入字体
 %—————————————————————————————————————————————————————————————————————————————————
@@ -102,7 +113,7 @@
 ]
 %==================================================================================
 
-
+% \setmathfont{Latin Modern Math}
 
 % \setmainfont{Times New Roman}[
 %   BoldFont = times-new-roman-bold,
