@@ -78,12 +78,18 @@
 \usepackage{multirow}
 \usepackage{pdfpages}
 \usepackage{svg}           % 用于导入SVG格式图片
+\usepackage{fontspec}
 \usepackage{unicode-math}
 
 
 
 %%%%%=============================================================================%%%%%
 % math package amssymb
+% 控制 \mathcal \mathbb
+%%———————————————————————————————————————————————————————————————————————————————————%%
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\let\mathbb\relax % remove the definition by unicode-math
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
 %%%%%=============================================================================%%%%%
 
 
@@ -122,6 +128,11 @@
   UprightFont = *-Regular,        
   BoldFont = *-Bold,              
 ]
+% \setmathfont{Latin Modern Math}
+\setmathfont[
+  Path = fonts/,
+  Scale = 1.0
+]{Latin Modern Math.otf}
 %%%%%=============================================================================%%%%%
 
 
